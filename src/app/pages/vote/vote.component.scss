@@ -1,0 +1,68 @@
+@import '../../../assets/scss/utils';
+
+@font-face {
+    font-family: 'chalkFont';
+    font-style: normal;
+    font-weight: 300;
+    src: /* Modern Browsers */ url('../../../assets/fonts/chalk/KGBrokenVesselsSketch.ttf') format('truetype');
+}
+$font-main: 'chalkFont';
+
+.vote-wrapper {
+  height: 100vh;
+  width: 100vw;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url('../../../assets/images/backgrounds/vote-background.jpg');
+  background-size: cover;
+
+  .vote-card {
+    background-color: white;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: url('../../../assets/images/backgrounds/vote-options.jpg');
+    -moz-background-size: 100% 100%;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+  
+    .form-control {
+      border-radius: 0;
+    }
+
+    .btn {
+      margin-top: 5px;
+      font-size: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: transparent;
+      color: white;
+      font-family: $font-main;
+
+      &:disabled,
+      &:active {
+        color: white;
+      }
+    }
+  }
+}
+.form-check {
+  padding: 0;
+}
+
+.vote-option {
+    font-family: $font-main;
+    color: white;
+}
+
+.topic {
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    font-size: xxx-large;
+}
+

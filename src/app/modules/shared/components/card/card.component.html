@@ -1,0 +1,29 @@
+<div class="card">
+    <div class="card-header" *ngIf="title || settingsRoute">
+      {{ title }}
+      <a *ngIf="settingsRoute" [routerLink]="settingsRoute">
+        <i class="bi bi-gear"></i>
+      </a>
+  
+      <i
+        *ngIf="icon"
+        class="bi"
+        [ngClass]="'bi-' + icon"
+        [ngStyle]="{ 'font-size': iconSize + 'px' }"
+        (click)="menu ? (menuOpened = !menuOpened) : iconClicked.emit(true)"></i>
+      <div class="menu" *ngIf="menuOpened">
+        <div class="menu-item" *ngFor="let item of menu" (click)="menuOpened = false; menuItemClicked.emit(item.title)">
+          <div class="d-flex gap-2">
+            <i [ngClass]="['bi', item.icon]"></i><span>{{ item.title }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <ng-content></ng-content>
+    </div>
+    <div class="card-footer">
+      <ng-content select="[footer]"></ng-content>
+    </div>
+  </div>
+  
