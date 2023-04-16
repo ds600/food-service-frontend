@@ -2,7 +2,7 @@
     <div title="" class="vote-card" [ngStyle]="{'padding': createPaddingValue()}">
         <div class="form-check" *ngFor="let voteOption of voteoptions.options">
             <label class="vote-option" >
-                <input type="radio" [value]="voteOption" name="selectedVote" />
+                <input type="radio" [value]="voteOption" name="selectedVote" [(ngModel)]="selectedVote"/>
                 {{voteOption.toUpperCase()}}
             </label>
         </div>

@@ -1,0 +1,23 @@
+
+.menu-wrapper {
+    height: 100vh;
+    width: 100vw;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('../../../assets/images/backgrounds/vote-background.jpg');
+    background-size: cover;
+  
+    .menu-card {
+      background-color: transparent;
+      width: 38%;
+      height: 80%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      -moz-background-size: 100% 100%;
+      -webkit-background-size: 100% 100%;
+      background-size: 100% 100%;
+    }
+}

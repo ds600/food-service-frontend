@@ -10,7 +10,7 @@ import { VotePost } from '../interfaces/vote-post-interface';
 @Injectable({
   providedIn: 'root',
 })
-export class VotenService {
+export class VoteService {
   constructor(private httpClient: HttpClient, public toastr: ToastrService) {}
 
     /**
@@ -45,7 +45,7 @@ export class VotenService {
     */
     postVote(vote: VotePost): Promise<any> {
         return new Promise<any>((resolve, reject) => {
-            this.httpClient.post<ApiResponse>('api/vote', vote).subscribe({
+            this.httpClient.post<ApiResponse>('api/sendvote', vote).subscribe({
                 next: (response: ApiResponse) => {
                     this.toastr.success("SUCCESS", 'Your vote has been registered, thank you for voting!', {
                         timeOut: 3000,
