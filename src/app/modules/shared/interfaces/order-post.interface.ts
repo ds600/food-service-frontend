@@ -1,6 +1,6 @@
 export class OrderPost {
     token: string = ""
     orderNumber: string = "";
-    additionInformation: string = "";
+    additionalInformation: string = "";
     price: string = "";
 }

@@ -23,9 +23,9 @@ export class OrderComponent {
   loading = false;
   paramId: string = '';
 
-  form: FormGroup = new FormGroup<{ orderNumber: FormControl; additionInformation: FormControl; price: FormControl }>({
+  form: FormGroup = new FormGroup<{ orderNumber: FormControl; additionalInformation: FormControl; price: FormControl }>({
     orderNumber: new FormControl('', [Validators.required]),
-    additionInformation: new FormControl(''),
+    additionalInformation: new FormControl(''),
     price: new FormControl('', [Validators.required]),
   });;
 
@@ -54,7 +54,7 @@ export class OrderComponent {
 
     let order: OrderPost = new OrderPost;
     order.token = this.paramId;
-    order.additionInformation = this.form.value.additionInformation;
+    order.additionalInformation = this.form.value.additionalInformation;
     order.orderNumber = this.form.value.orderNumber;
     order.price = this.form.value.price;
     this.loading = true;
