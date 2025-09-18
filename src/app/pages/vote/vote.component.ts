@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
+import { ToastService, ToastType } from '@lenne.tech/ng-base/shared';
 import { VoteOptions } from 'src/app/modules/shared/interfaces/vote-options.interface';
 import { VotePost } from 'src/app/modules/shared/interfaces/vote-post-interface';
 import { VoteService } from 'src/app/modules/shared/services/vote.service';

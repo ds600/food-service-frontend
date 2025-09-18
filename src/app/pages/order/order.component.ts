@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { NgImageSliderComponent } from 'ng-image-slider';
-import { ToastrService } from 'ngx-toastr';
+import { ToastService, ToastType } from '@lenne.tech/ng-base/shared';
 import { OrderPost } from 'src/app/modules/shared/interfaces/order-post.interface';
 import { MenusService } from 'src/app/modules/shared/services/menus.service';
 

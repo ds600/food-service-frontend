@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Observable, tap } from 'rxjs';
-import { ToastrService } from 'ngx-toastr';
+import { ToastService, ToastType } from '@lenne.tech/ng-base/shared';
 import { ApiResponse } from '../interfaces/api-response.interface';
 import { VoteOptions } from '../interfaces/vote-options.interface';
 import { VotePost } from '../interfaces/vote-post-interface';
