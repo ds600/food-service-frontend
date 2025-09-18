@@ -14,7 +14,7 @@ export class OrderComponent {
   constructor(
     private route: ActivatedRoute,
     private menusService: MenusService, 
-    private toastr: ToastrService
+    private toastr: ToastService
     ) {}
 
   @ViewChild('navigation') navigation!: NgImageSliderComponent;
@@ -46,9 +46,15 @@ export class OrderComponent {
 
   async order(): Promise<void>  {
     if (this.form.value.orderNumber === "" || this.form.value.price === "") {
-      this.toastr.error("Please enter your order and its price", "Can't send order", {
-        timeOut: 3000,
-      });
+      this.toastr.show(
+        {
+        id: 'send-order-error',
+        type: ToastType.ERROR,
+        title: "Can't send order",
+        description: 'Please enter your order and its price',
+        },
+        3000
+      );
       return;
     } 
 

@@ -7,7 +7,6 @@ import { VoteComponent } from './pages/vote/vote.component';
 import { MenusComponent } from './pages/menus/menus.component';
 import { CardComponent } from './modules/shared/components/card/card.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgImageSliderModule } from 'ng-image-slider';
@@ -26,7 +25,6 @@ import { OrderComponent } from './pages/order/order.component';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot(),
     FormsModule,
     ReactiveFormsModule,
     NgImageSliderModule

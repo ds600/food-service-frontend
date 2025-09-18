@@ -12,7 +12,7 @@ import { OrderPost } from '../interfaces/order-post.interface';
   providedIn: 'root',
 })
 export class MenusService {
-  constructor(private httpClient: HttpClient, public toastr: ToastrService) {}
+  constructor(private httpClient: HttpClient, public toastr: ToastService) {}
 
     /**
      * We're using the Angular HttpClient to make a GET request to the server
@@ -27,9 +27,15 @@ export class MenusService {
               },
               error: error => {
                 let apiError = error as HttpErrorResponse;
-                this.toastr.error(apiError.message, 'Getting Menus Failed', {
-                    timeOut: 3000,
-                });
+                this.toastr.show(
+                    {
+                    id: 'menu-error',
+                    type: ToastType.ERROR,
+                    title: apiError.message,
+                    description: 'Getting Menus Failed',
+                    },
+                    3000
+                );
                 reject(apiError);
               },
             });
@@ -49,9 +55,15 @@ export class MenusService {
                 },
                 error: error => {
                 let apiError = error as HttpErrorResponse;
-                this.toastr.error(apiError.message, 'Getting Menus Failed', {
-                    timeOut: 3000,
-                });
+                this.toastr.show(
+                    {
+                    id: 'menu-current-error',
+                    type: ToastType.ERROR,
+                    title: apiError.message,
+                    description: 'Getting Menus Failed',
+                    },
+                    3000
+                );
                 reject(apiError);
                 },
             });
@@ -65,16 +77,28 @@ export class MenusService {
       return new Promise<any>((resolve, reject) => {
           this.httpClient.post<ApiResponse>('api/sendorder', order).subscribe({
               next: (response: ApiResponse) => {
-                  this.toastr.success("SUCCESS", 'Your Order has been registered, thank you for ordering!', {
-                      timeOut: 3000,
-                  });
-                  resolve(response.ResponseObject);
+                this.toastr.show(
+                    {
+                    id: 'order-success',
+                    type: ToastType.SUCCESS,
+                    title: 'SUCCESS',
+                    description: 'Your Order has been registered, thank you for ordering!',
+                    },
+                    3000
+                );
+                resolve(response.ResponseObject);
               },
               error: (err: HttpErrorResponse) => {
-                  this.toastr.error(err.message, 'Sending your order in failed, please try again', {
-                      timeOut: 3000,
-                  });
-                  reject(err);
+                this.toastr.show(
+                    {
+                    id: 'menu-error',
+                    type: ToastType.ERROR,
+                    title: err.message,
+                    description: 'Sending your order in failed, please try again',
+                    },
+                    3000
+                );
+                reject(err);
               },
           });
       });

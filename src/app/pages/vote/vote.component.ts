@@ -20,7 +20,7 @@ export class VoteComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private voteService: VoteService, 
-    private toastr: ToastrService
+    private toastr: ToastService
   ) {}
 
   async ngOnInit(): Promise<void> {
@@ -35,9 +35,15 @@ export class VoteComponent implements OnInit {
 
   async vote(): Promise<void> {
     if (!this.selectedVote || this.selectedVote == "") {
-      this.toastr.error("Can not send vote", 'Please select a vote option', {
-        timeOut: 3000,
-      });
+      this.toastr.show(
+        {
+        id: 'send-vote-error',
+        type: ToastType.ERROR,
+        title: "Can not send vote",
+        description: 'Please select a vote option',
+        },
+        3000
+      );
       return;
     }
     
